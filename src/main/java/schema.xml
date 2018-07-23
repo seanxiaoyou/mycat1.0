@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://org.opencloudb/">
+
+	<schema name="TESTDB" checkSQLschema="true">
+		<!-- auto sharding by id (long) -->
+		<table name="FM_USER_FILE" primaryKey="USER_ID" dataNode="dn1,dn2"
+			rule="mod-long" />
+		<table name="SYS_SEQ" primaryKey="USER_ID" dataNode="dn1" />
+	</schema>
+
+	<dataNode name="dn1" dataHost="edrive31" database="edrive1" />
+	<dataNode name="dn2" dataHost="edrive32" database="edrive2" />
+
+	<dataHost name="edrive31" maxCon="1000" minCon="100" balance="0"
+		dbType="mysql" dbDriver="native">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="host228_3301" url="10.10.9.114:3307"
+			user="edrive" password="mysqledrivetest">
+		</writeHost>
+	</dataHost>
+	<dataHost name="edrive32" maxCon="1000" minCon="100" balance="0"
+		dbType="mysql" dbDriver="native">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="host228_3302" url="10.10.9.114:3307"
+			user="edrive" password="mysqledrivetest">
+		</writeHost>
+	</dataHost>
+</mycat:schema>

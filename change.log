@@ -1,0 +1,9 @@
+本版本最初由mycat1.1版本进行修改；
+
+2014-7-16：v1.1.2  何智峰
+1、去除跨库执行limit功能；
+	org/opencloudb/mpp/SelectSQLAnalyser.java
+	186、187行 注释掉了
+2、解决select 1语句单点问题；
+	org/opencloudb/route/ServerRouterUtil.java
+	155行，schema.getRandomDataNode()   随机拿取节点
