@@ -12,7 +12,7 @@
  - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  - See the License for the specific language governing permissions and
  - limitations under the License.
- - Add by SkyKong 2012-09-01
+ - Add by SkyKong 2012-09-01试试
 -->
 <!DOCTYPE daas:router SYSTEM "router.dtd">
 <mycat:router xmlns:mycat="http://org.opencloudb/">
